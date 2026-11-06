@@ -1,0 +1,10 @@
+{
+  "name": "afterimage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static audiovisual artwork: sound reveals a suspended silk and string sculpture.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

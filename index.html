@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Afterimage</title>
+  <meta name="description" content="A string and a fold of silk that move only with the sound of a recording.">
+  <meta name="theme-color" content="#0f0c09">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&display=swap">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body data-state="empty">
+  <div class="first-screen">
+    <header class="masthead">
+      <h1>Afterimage</h1>
+    </header>
+
+    <main class="stage">
+      <section class="note" aria-label="Recording">
+        <div class="note-text">
+          <p class="note-title" id="note-title">No recording loaded yet.</p>
+          <p class="note-privacy" id="note-privacy">Your video stays in this browser. Nothing is uploaded.</p>
+        </div>
+        <button type="button" class="choose" id="choose">Choose video</button>
+        <input type="file" id="file" accept="video/*,.mp4,.m4v,.mov,.webm" hidden>
+      </section>
+
+      <div class="canvas-wrap" id="canvas-wrap">
+        <video id="video" playsinline webkit-playsinline preload="metadata" crossorigin="anonymous" aria-hidden="true" tabindex="-1"></video>
+        <canvas id="art" role="img" aria-label="A fine ivory string crosses the frame on a diagonal. A sheet of ochre silk hangs beneath it and twists into two folds. The form holds still until a recording plays, then moves with its sound."></canvas>
+      </div>
+    </main>
+
+    <section class="strip" aria-label="Playback">
+      <div class="transport">
+        <button type="button" class="play" id="play" disabled>Play</button>
+        <div class="timeline">
+          <span class="time" id="elapsed">--:--</span>
+          <input type="range" id="seek" min="0" max="1" step="1" value="0" aria-label="Seek" aria-valuetext="No recording loaded" disabled>
+          <span class="time" id="duration">--:--</span>
+        </div>
+        <div class="levels">
+          <button type="button" class="mute" id="mute" aria-pressed="false">Mute</button>
+          <input type="range" id="volume" min="0" max="1" step="0.01" value="1" aria-label="Volume" aria-valuetext="100%">
+        </div>
+      </div>
+      <div class="status-row">
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+        <button type="button" class="retry" id="retry" hidden>Try again</button>
+      </div>
+    </section>
+  </div>
+
+  <details class="about">
+    <summary>About this piece</summary>
+    <div class="about-body">
+      <p>The form holds one pose until sound arrives. Low notes widen and sway the silk, the middle of the spectrum shapes each fold, high detail runs along the threads, and loudness sets the light. The string carries the waveform itself. A recording with no sound leaves everything at rest, and the picture stays hidden.</p>
+      <dl>
+        <div><dt>Space or K</dt><dd>Play or pause</dd></div>
+        <div><dt>M</dt><dd>Mute</dd></div>
+        <div><dt>Left and Right</dt><dd>Seek five seconds</dd></div>
+      </dl>
+    </div>
+  </details>
+  <noscript><p class="noscript">Afterimage needs JavaScript to read sound and draw the form.</p></noscript>
+</body>
+</html>
